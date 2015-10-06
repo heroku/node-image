@@ -1,23 +1,23 @@
-# Inherit from Heroku's stack
+# Inherit Heroku OS
 FROM heroku/cedar:14
 
-# Internally, we arbitrarily use port 3000
-ENV PORT 3000
-# Which version of node?
-ENV NODE_ENGINE 0.12.2
-# Locate our binaries
+# Set Node Version
+ENV NODE_ENGINE 4.1.2
+
+# Set the PATH for Node (inc npm) and any installed runnables
 ENV PATH /app/heroku/node/bin/:/app/user/node_modules/.bin:$PATH
 
-# Create some needed directories
-RUN mkdir -p /app/heroku/node /app/.profile.d
+# Create Node installation directory
+RUN mkdir -p /app/heroku/node
+
+# Create Heroky setup directory
+RUN mkdir -p /app/.profile.d
+
+# Change to working directory
 WORKDIR /app/user
 
-# Install node
-RUN curl -s https://s3pository.heroku.com/node/v$NODE_ENGINE/node-v$NODE_ENGINE-linux-x64.tar.gz | tar --strip-components=1 -xz -C /app/heroku/node
+# Install Node
+RUN curl -s https://nodejs.org/dist/v$NODE_ENGINE/node-v$NODE_ENGINE-linux-x64.tar.gz | tar --strip-components=1 -xz -C /app/heroku/node
 
-# Export the node path in .profile.d
+# Make the PATH available to Heroku by export to .profile.d
 RUN echo "export PATH=\"/app/heroku/node/bin:/app/user/node_modules/.bin:\$PATH\"" > /app/.profile.d/nodejs.sh
-
-ONBUILD ADD package.json /app/user/
-ONBUILD RUN /app/heroku/node/bin/npm install
-ONBUILD ADD . /app/user/
