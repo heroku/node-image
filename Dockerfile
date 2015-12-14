@@ -4,7 +4,8 @@ FROM heroku/cedar:14
 # Internally, we arbitrarily use port 3000
 ENV PORT 3000
 # Which version of node?
-ENV NODE_ENGINE 0.12.2
+ARG NODE_ENGINE=0.12.2
+ENV NODE_ENGINE ${NODE_ENGINE}
 # Locate our binaries
 ENV PATH /app/heroku/node/bin/:/app/user/node_modules/.bin:$PATH
 
