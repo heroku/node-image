@@ -10,7 +10,7 @@ ENV PATH /app/heroku/node/bin/:/app/user/node_modules/.bin:$PATH
 # Create Node installation directory
 RUN mkdir -p /app/heroku/node
 
-# Create Heroky setup directory
+# Create Heroku setup directory
 RUN mkdir -p /app/.profile.d
 
 # Change to working directory
