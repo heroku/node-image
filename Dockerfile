@@ -2,7 +2,7 @@
 FROM heroku/cedar:14
 
 # Set Node Version
-ENV NODE_ENGINE 4.1.2
+ENV NODE_ENGINE 5.4.0
 
 # Set the PATH for Node (inc npm) and any installed runnables
 ENV PATH /app/heroku/node/bin/:/app/user/node_modules/.bin:$PATH
