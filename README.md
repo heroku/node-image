@@ -6,7 +6,7 @@ Public auto builds for this variant can be found at https://hub.docker.com/r/bin
 
 The repository for this variant can found at https://github.com/Binarytales/heroku-nodejs
 
-# Changes from heroku/docker-nodejs
+## Changes from heroku/docker-nodejs
 
 https://github.com/heroku/docker-nodejs
 
@@ -17,9 +17,9 @@ https://github.com/nodejs/docker-node
 - This version removes the `ONBUILD` commands so you will need to set up your Dockerfile accordingly (see 'Usage')
 TODO: I plan on adding `:onbuild` variants in the same way the official Docker Node project does  
 
-# Dockerhub settings
+## Docker Hub settings
 
-The Dockerhub build is set to auto build when both branches and tags are pushed to the Github repository.
+The Docker Hub build is set to auto build when both branches and tags are pushed to the Github repository.
 
 In this way the `lts` and `latest` tags point to the latest LTS and Stable Node versions and then specific
 versions are available as version number tags
@@ -40,7 +40,7 @@ RUN /app/heroku/node/bin/npm install
 ADD . /app/user/
 ```
 
-## From original README
+#Original README
 
 ## Usage
 

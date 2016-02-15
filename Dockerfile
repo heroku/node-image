@@ -32,8 +32,6 @@ RUN mkdir -p /app/.profile.d
 WORKDIR /app/user
 
 # Install Node
-RUN curl -s https://nodejs.org/dist/v$NODE_ENGINE/node-v$NODE_ENGINE-linux-x64.tar.gz | tar --strip-components=1 -xz -C /app/heroku/node
-
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_ENGINE/node-v$NODE_ENGINE-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_ENGINE/SHASUMS256.txt.asc" \
   && gpg --verify SHASUMS256.txt.asc \
